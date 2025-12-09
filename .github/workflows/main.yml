@@ -26,10 +26,9 @@ jobs:
 
       - name: Create RDP User with Permanent Password
         run: |
-          $password = "Bullet@12345"   # তোমার permanent RDP password
+          $password = "Bullet@12345"
           $securePass = ConvertTo-SecureString $password -AsPlainText -Force
 
-          # Create RDP user
           New-LocalUser -Name "RDP" -Password $securePass -AccountNeverExpires -Force
 
           Add-LocalGroupMember -Group "Administrators" -Member "RDP"
