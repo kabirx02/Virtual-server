@@ -37,10 +37,7 @@ jobs:
 
       - name: Create RDP User with Secure Password
         run: |
-         $password = "Bullet@12345"
-$securePass = ConvertTo-SecureString $password -AsPlainText -Force  
-
-New-LocalUser -Name "RDP" -Password $securePass -AccountNeverExpires
+         $password = "Bullet@12345" New-LocalUser -Name "RDP" -Password $securePass -AccountNeverExpires
           Add-LocalGroupMember -Group "Administrators" -Member "RDP"
           Add-LocalGroupMember -Group "Remote Desktop Users" -Member "RDP"
           
